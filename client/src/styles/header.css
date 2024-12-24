@@ -1,0 +1,43 @@
+.header{
+  background-image: linear-gradient(to right,#3903ff,#d32626);
+  height:65px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100vw;
+  position: fixed;
+  
+}
+
+.heading{
+  color: white;
+  font-size: 2.5em;
+  display: flex;
+  justify-content: center;
+  flex:1;
+  padding-left: 50px;
+}
+
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  50% { transform: rotate(10deg); }
+  75% { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.gitlogo{
+  margin-right: 15px;
+  border:3px solid #ffffff ;
+  border-radius: 4px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.gitlogo:hover{
+  animation: shake 0.5s ease-in-out; 
+}
+
+.logo{
+  width: 35px;
+}
