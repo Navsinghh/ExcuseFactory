@@ -1,0 +1,13 @@
+*{
+  margin:0px;
+  padding: 0px;
+}
+
+body{
+  background: linear-gradient(to right, #272727,  #595858, #272727);
+  overflow: scroll;
+}
+
+body::-webkit-scrollbar{
+  display: none;
+}
