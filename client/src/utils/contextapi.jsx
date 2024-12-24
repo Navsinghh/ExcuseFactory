@@ -19,9 +19,10 @@ export const AppProvider = ({ children }) => {
 
   const handleFetchingExcuses = () => {
     // Only fetch if both `apiValue` and `activeButton` are set
+    // `http://localhost:4000/v1/excuse/${categories[activeButton]}/${apiValue}` for if you are runnning server locally aswell
     if (apiValue && activeButton !== null) {
       fetch(
-        `http://localhost:4000/v1/excuse/${categories[activeButton]}/${apiValue}`
+        `https://excuseapi.vercel.app/v1/excuse/${categories[activeButton]}/${apiValue}`
       )
         .then((res) => res.json())
         .then((json) => {
