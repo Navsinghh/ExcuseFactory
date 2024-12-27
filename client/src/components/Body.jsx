@@ -15,14 +15,17 @@ export default function Body() {
 
   const handleButtonClick = (index) => {
     setActiveButton(index);
-    console.log(index);
   };
 
   const handleApiValueChange = (event) => {
     const value = event.target.value;
-    const numValue = value;
-    if (value === "" || (numValue > 0 && numValue <= 10)) {
-      setApiValue(numValue);
+    if (/^\d*$/.test(value) && value !== ".") {
+      const numericValue = parseInt(value, 10);
+      if (numericValue >= 1 && numericValue <= 10) {
+        setApiValue(numericValue);
+      } else if (value === "") {
+        setApiValue("");
+      }
     }
   };
 

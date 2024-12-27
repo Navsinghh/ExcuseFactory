@@ -16,6 +16,18 @@ export const AppProvider = ({ children }) => {
   ];
   const [apiValue, setApiValue] = useState("");
   const [data, setData] = useState([]); // Store fetched data
+  const [alertMessage, setAlertMessage] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
+
+  const showAlertMessage = (message) => {
+    setAlertMessage(message);
+    setShowAlert(true);
+
+    // Automatically hide alert after 3 seconds
+    setTimeout(() => {
+      setShowAlert(false);
+    }, 3000);
+  };
 
   const handleFetchingExcuses = () => {
     // Only fetch if both `apiValue` and `activeButton` are set
@@ -29,9 +41,9 @@ export const AppProvider = ({ children }) => {
           setData(json); // Save fetched data to state
           console.log(json);
         })
-        .catch((error) => console.error("Error fetching excuses:", error));
+        .catch((error) => showAlertMessage("Error fetching excuses:", error));
     } else {
-      console.error("Please select both a category and a number!");
+      showAlertMessage("Please select both a category and a number!");
     }
   };
 
@@ -43,6 +55,8 @@ export const AppProvider = ({ children }) => {
     categories,
     apiValue,
     setApiValue,
+    alertMessage,
+    showAlert,
   };
 
   return (
